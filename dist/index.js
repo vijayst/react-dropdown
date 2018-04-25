@@ -188,21 +188,24 @@ var Dropdown = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _classNames, _classNames2, _classNames3;
+      var _classNames, _classNames2, _classNames3, _classNames4;
 
       var _props2 = this.props,
           baseClassName = _props2.baseClassName,
           placeholderClassName = _props2.placeholderClassName,
           menuClassName = _props2.menuClassName,
-          className = _props2.className;
+          arrowClassName = _props2.arrowClassName,
+          className = _props2.className,
+          style = _props2.style;
 
 
       var disabledClass = this.props.disabled ? 'Dropdown-disabled' : '';
       var placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label;
 
       var dropdownClass = (0, _classnames2.default)((_classNames = {}, _defineProperty(_classNames, baseClassName + '-root', true), _defineProperty(_classNames, className, !!className), _defineProperty(_classNames, 'is-open', this.state.isOpen), _classNames));
-      var placeholderClass = (0, _classnames2.default)((_classNames2 = {}, _defineProperty(_classNames2, baseClassName + '-placeholder', true), _defineProperty(_classNames2, '' + placeholderClassName, !!placeholderClassName), _classNames2));
-      var menuClass = (0, _classnames2.default)((_classNames3 = {}, _defineProperty(_classNames3, baseClassName + '-menu', true), _defineProperty(_classNames3, '' + menuClassName, !!menuClassName), _classNames3));
+      var placeholderClass = (0, _classnames2.default)((_classNames2 = {}, _defineProperty(_classNames2, baseClassName + '-placeholder', true), _defineProperty(_classNames2, placeholderClassName, !!placeholderClassName), _classNames2));
+      var menuClass = (0, _classnames2.default)((_classNames3 = {}, _defineProperty(_classNames3, baseClassName + '-menu', true), _defineProperty(_classNames3, menuClassName, !!menuClassName), _classNames3));
+      var arrowClass = (0, _classnames2.default)((_classNames4 = {}, _defineProperty(_classNames4, baseClassName + '-arrow', true), _defineProperty(_classNames4, arrowClassName, !!arrowClassName), _classNames4));
 
       var value = _react2.default.createElement(
         'div',
@@ -217,12 +220,12 @@ var Dropdown = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: dropdownClass },
+        { className: dropdownClass, style: style },
         _react2.default.createElement(
           'div',
           { className: baseClassName + '-control ' + disabledClass, onMouseDown: this.handleMouseDown.bind(this), onTouchEnd: this.handleMouseDown.bind(this) },
           value,
-          _react2.default.createElement('span', { className: baseClassName + '-arrow' })
+          _react2.default.createElement('span', { className: arrowClass })
         ),
         menu
       );
